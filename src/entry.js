@@ -1,1 +1,3 @@
-document.getElementById("demo").innerHTML = "chenxuan11"
+import css from './css/index.css'
+
+document.getElementById('demo').innerHTML = 'chenxuan11'

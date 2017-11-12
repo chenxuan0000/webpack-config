@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'), //获取绝对路径
     filename: '[name].js' //[name]对应entry的文件名
   },
-  module: {},
+  module: {},//依赖模块
   plugins: [],//插件
   devServer: {}
 }
