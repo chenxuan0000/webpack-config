@@ -18,3 +18,13 @@ module.exports = {
   devServer: {}
 }
 ```
+
+#### 2.devServer配置
+```javascript
+devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    host: '127.0.0.1',
+    compress: true, //服务器压缩
+    port: 1988
+  }
+```
