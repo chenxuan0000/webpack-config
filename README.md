@@ -1,3 +1,7 @@
+## webpack 3.X基本配置
+#### 1.webpack.config.js
+> webpack默认配置文件 
+```javascript
 const path = require('path')
 
 module.exports = {
@@ -13,3 +17,4 @@ module.exports = {
   plugins: [],//插件
   devServer: {}
 }
+```
