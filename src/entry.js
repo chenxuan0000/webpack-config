@@ -1,3 +1,3 @@
-import css from './css/index.css'
+import css from './css/index.css';
 
-document.getElementById('demo').innerHTML = 'chenxuan11'
+document.getElementById('demo').innerHTML = 'chenxuan11';
