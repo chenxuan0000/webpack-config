@@ -2,3 +2,9 @@ body{
     background-color: red;
     color: white;
 }
+
+#img {
+    width: 400px;
+    height: 60px;
+    background-image: url("../images/title.png");
+}

@@ -1,10 +1,10 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');//压缩插件
+const htmlPlugin = require('html-webpack-plugin'); //html插件
 
 module.exports = {
   entry: { //入口
-    entry: './src/entry.js',
-    entry2: './src/entry2.js'
+    entry: './src/entry.js'
   },
   output: { //出口
     path: path.resolve(__dirname, 'dist'), //获取绝对路径
@@ -19,11 +19,26 @@ module.exports = {
         }, {
           loader: 'css-loader'
         }]
+      }, {
+        test: /\.(png|jpg|gif)/,
+        use: [{
+          loader: 'url-loader', //配置options
+          options: {
+            limit: 1000
+          }
+        }]
       }
     ]
   },//依赖模块
   plugins: [
-    new uglify()
+    // new uglify()
+    new htmlPlugin({
+      minify: {
+        removeAttributeQuotes: true //去掉属性引号
+      },
+      hash: true, //js带hash
+      template: './src/index.html'
+    })
   ],//插件
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

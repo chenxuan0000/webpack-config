@@ -6,8 +6,7 @@ const path = require('path')
 
 module.exports = {
   entry: { //入口
-    entry: './src/entry.js',
-    entry2: './src/entry2.js'
+    entry: './src/entry.js'
   },
   output: { //出口
     path: path.resolve(__dirname, 'dist'), //获取绝对路径
@@ -27,4 +26,34 @@ devServer: {
     compress: true, //服务器压缩
     port: 1988
   }
+```
+
+#### 3.压缩插件
+```javascript
+const uglify = require('uglifyjs-webpack-plugin');
+```
+
+#### 3.html生成插件
+```javascript
+const htmlPlugin = require('html-webpack-plugin'); //html插件
+new htmlPlugin({
+      minify: {
+        removeAttributeQuotes: true //去掉属性引号
+      },
+      hash: true, //js带hash
+      template: './src/index.html'
+    })
+```
+
+#### 3.url-loader
+```javascript
+{
+        test: /\.(png|jpg|gif)/,
+        use: [{
+          loader: 'url-loader', //配置options
+          options: {
+            limit: 1000
+          }
+        }]
+      }
 ```
