@@ -57,3 +57,7 @@ new htmlPlugin({
         }]
       }
 ```
+#### 4.css打包分离插件
+```javascript
+const extractTextPlugin = require('extract-text-webpack-plugin');//具体差异对比commit diff
+```

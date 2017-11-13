@@ -1,6 +1,10 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');//压缩插件
 const htmlPlugin = require('html-webpack-plugin'); //html插件
+const extractTextPlugin = require('extract-text-webpack-plugin'); //css打包分离插件
+var webSite = {
+  publicPath: 'http://127.0.0.1:1988/'
+}
 
 module.exports = {
   entry: { //入口
@@ -8,17 +12,17 @@ module.exports = {
   },
   output: { //出口
     path: path.resolve(__dirname, 'dist'), //获取绝对路径
-    filename: '[name].js' //[name]对应entry的文件名
+    filename: '[name].js', //[name]对应entry的文件名
+    publicPath: webSite.publicPath
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader'
-        }]
+        use: extractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       }, {
         test: /\.(png|jpg|gif)/,
         use: [{
@@ -38,7 +42,8 @@ module.exports = {
       },
       hash: true, //js带hash
       template: './src/index.html'
-    })
+    }),
+    new extractTextPlugin('/css/index.css')
   ],//插件
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

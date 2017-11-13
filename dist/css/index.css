@@ -1,0 +1,10 @@
+body{
+    background-color: red;
+    color: white;
+}
+
+#img {
+    width: 400px;
+    height: 60px;
+    background-image: url(http://127.0.0.1:1988/8399f5daf14cb9bf6c22bdde5c6683a2.png);
+}
