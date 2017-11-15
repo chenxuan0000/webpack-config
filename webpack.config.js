@@ -28,9 +28,13 @@ module.exports = {
         use: [{
           loader: 'url-loader', //配置options
           options: {
-            limit: 1000
+            limit: 1000,
+            outputPath: 'images/' //配置img输出路径
           }
         }]
+      }, {
+        test: /\.(html|htm)$/i,
+        use: ['html-withimg-loader']
       }
     ]
   },//依赖模块
@@ -43,7 +47,7 @@ module.exports = {
       hash: true, //js带hash
       template: './src/index.html'
     }),
-    new extractTextPlugin('/css/index.css')
+    new extractTextPlugin('css/index.css')
   ],//插件
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

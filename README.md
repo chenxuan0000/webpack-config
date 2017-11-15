@@ -61,3 +61,11 @@ new htmlPlugin({
 ```javascript
 const extractTextPlugin = require('extract-text-webpack-plugin');//具体差异对比commit diff
 ```
+
+#### 5.html中img的打包
+```javascript
+{
+        test: /\.(html|htm)$/i,
+        use: ['html-withimg-loader']
+      }
+```
