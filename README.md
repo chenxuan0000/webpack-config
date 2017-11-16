@@ -85,3 +85,30 @@ cnpm install --save-dev less less-loader
         })
       }
 ```
+
+#### 7.css自动加前缀
+>postCSS推荐在项目根目录（和webpack.config.js同级），建立一个postcss.config.js文件。
+```javascript
+cnpm install --save-dev postcss-loader autoprefixer
+
+//postcss.config.js
+module.exports = {
+    plugins: [
+        require('autoprefixer')
+    ]
+}
+
+//配置提取CSS的loader配置
+{
+    test: /\.css$/,
+    use: extractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            'postcss-loader'
+        ]
+    })
+    
+}
+
+```

@@ -4,7 +4,9 @@ body{
 }
 
 #img {
+    display: flex;
     width: 400px;
     height: 60px;
+    transform: rotate(45deg);
     background-image: url("../images/title.png");
 }

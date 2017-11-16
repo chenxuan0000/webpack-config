@@ -21,7 +21,10 @@ module.exports = {
         test: /\.css$/,
         use: extractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+          use: [
+            {loader: 'css-loader', options: {importLoaders: 1}},
+            'postcss-loader'
+          ]
         })
       }, {
         test: /\.(png|jpg|gif)/,
