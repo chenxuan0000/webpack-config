@@ -10,3 +10,6 @@ body{
     transform: rotate(45deg);
     background-image: url("../images/title.png");
 }
+#imggg {
+    background: #000;
+}

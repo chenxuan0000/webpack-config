@@ -1,4 +1,6 @@
 const path = require('path');
+const glob = require('glob')
+const PurifyCSSPlugin = require('purifycss-webpack');
 const uglify = require('uglifyjs-webpack-plugin');//压缩插件
 const htmlPlugin = require('html-webpack-plugin'); //html插件
 const extractTextPlugin = require('extract-text-webpack-plugin'); //css打包分离插件
@@ -7,6 +9,7 @@ var webSite = {
 }
 
 module.exports = {
+  // devtool: 'source-map',
   entry: { //入口
     entry: './src/entry.js'
   },
@@ -45,6 +48,8 @@ module.exports = {
             loader: 'css-loader'
           }, {
             loader: 'less-loader'
+          }, {
+            loader: 'postcss-loader'
           }],
           fallback: 'style-loader'
         })
@@ -55,6 +60,8 @@ module.exports = {
             loader: 'css-loader'
           }, {
             loader: 'sass-loader'
+          }, {
+            loader: 'postcss-loader'
           }],
           fallback: 'style-loader'
         })
@@ -70,7 +77,11 @@ module.exports = {
       hash: true, //js带hash
       template: './src/index.html'
     }),
-    new extractTextPlugin('css/index.css')
+    new extractTextPlugin('css/index.css'),
+    new PurifyCSSPlugin({
+      // Give paths to parse for rules. These should be absolute!
+      paths: glob.sync(path.join(__dirname, 'src/*.html')),
+    })
   ],//插件
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

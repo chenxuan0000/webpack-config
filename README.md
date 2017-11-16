@@ -112,3 +112,20 @@ module.exports = {
 }
 
 ```
+
+#### 8.消除未使用的CSS
+>注意：使用这个插件必须配合extract-text-webpack-plugin这个插件，这个插件在前边的课程已经讲解过了。如果你还不会请自学一下。
+```javascript
+cnpm i -D purifycss-webpack purify-css
+
+	
+const glob = require('glob');
+	
+const PurifyCSSPlugin = require("purifycss-webpack");
+
+ new PurifyCSSPlugin({
+        // Give paths to parse for rules. These should be absolute!
+        paths: glob.sync(path.join(__dirname, 'src/*.html')),
+        })
+```
+
