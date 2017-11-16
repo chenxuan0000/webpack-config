@@ -129,3 +129,21 @@ const PurifyCSSPlugin = require("purifycss-webpack");
         })
 ```
 
+#### 9.babel
+```javascript
+cnpm i -D babel-core babel-loader babel-preset-es2015
+cnpm i -D babel-preset-env
+
+{
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader'
+        },
+        exclude: /node_modules/
+      }
+      
+//.babelrc
+{
+  "presets": ["env"]
+}
+```

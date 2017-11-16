@@ -65,21 +65,30 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__css_index_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__css_index_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_bottom_less__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__css_bottom_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__css_bottom_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_demo_scss__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__css_demo_scss___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__css_demo_scss__);
 
 
+var _index = __webpack_require__(1);
 
+var _index2 = _interopRequireDefault(_index);
 
-document.getElementById('demo').innerHTML = 'chenxuan11';
+var _bottom = __webpack_require__(2);
+
+var _bottom2 = _interopRequireDefault(_bottom);
+
+var _demo = __webpack_require__(3);
+
+var _demo2 = _interopRequireDefault(_demo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+{
+  var cx = 'chenxuan11';
+
+  document.getElementById('demo').innerHTML = cx;
+}
 
 /***/ }),
 /* 1 */

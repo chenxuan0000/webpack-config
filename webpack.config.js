@@ -65,6 +65,12 @@ module.exports = {
           }],
           fallback: 'style-loader'
         })
+      }, {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader'
+        },
+        exclude: /node_modules/
       }
     ]
   },//依赖模块
