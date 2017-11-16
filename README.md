@@ -69,3 +69,19 @@ const extractTextPlugin = require('extract-text-webpack-plugin');//具体差异�
         use: ['html-withimg-loader']
       }
 ```
+
+#### 6.less编译打包分离
+```javascript
+cnpm install --save-dev less less-loader
+ {
+        test: /\.less$/,
+        use: extractTextPlugin.extract({
+          use: [{
+            loader: 'css-loader'
+          }, {
+            loader: 'less-loader'
+          }],
+          fallback: 'style-loader'
+        })
+      }
+```

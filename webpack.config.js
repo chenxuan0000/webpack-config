@@ -35,6 +35,16 @@ module.exports = {
       }, {
         test: /\.(html|htm)$/i,
         use: ['html-withimg-loader']
+      }, {
+        test: /\.less$/,
+        use: extractTextPlugin.extract({
+          use: [{
+            loader: 'css-loader'
+          }, {
+            loader: 'less-loader'
+          }],
+          fallback: 'style-loader'
+        })
       }
     ]
   },//依赖模块
