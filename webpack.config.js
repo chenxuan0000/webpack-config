@@ -45,6 +45,16 @@ module.exports = {
           }],
           fallback: 'style-loader'
         })
+      }, {
+        test: /\.scss/,
+        use: extractTextPlugin.extract({
+          use: [{
+            loader: 'css-loader'
+          }, {
+            loader: 'sass-loader'
+          }],
+          fallback: 'style-loader'
+        })
       }
     ]
   },//依赖模块

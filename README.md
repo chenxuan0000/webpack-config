@@ -70,7 +70,7 @@ const extractTextPlugin = require('extract-text-webpack-plugin');//具体差异�
       }
 ```
 
-#### 6.less编译打包分离
+#### 6.less编译打包分离 scss类似
 ```javascript
 cnpm install --save-dev less less-loader
  {
