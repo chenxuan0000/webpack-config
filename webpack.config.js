@@ -1,16 +1,17 @@
 const path = require('path');
-const glob = require('glob')
+const glob = require('glob');
+const webpack = require('webpack');
 const PurifyCSSPlugin = require('purifycss-webpack');
 const uglify = require('uglifyjs-webpack-plugin');//压缩插件
 const htmlPlugin = require('html-webpack-plugin'); //html插件
 const extractTextPlugin = require('extract-text-webpack-plugin'); //css打包分离插件
 const entry = require('./webpack_config/entry.js'); //入口配置文件
 
-if(process.env.type === "build") {
+if (process.env.type === 'build') {
   var webSite = {
     publicPath: 'http://www.chenxuan.com:8888/'
   }
-}else {
+} else {
   var webSite = {
     publicPath: 'http://127.0.0.1:1988/'
   }
@@ -93,7 +94,8 @@ module.exports = {
     new PurifyCSSPlugin({
       // Give paths to parse for rules. These should be absolute!
       paths: glob.sync(path.join(__dirname, 'src/*.html')),
-    })
+    }),
+    new webpack.BannerPlugin("常清文群翁无群二群翁！！！！") //公共注释插件
   ],//插件
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
@@ -102,5 +104,10 @@ module.exports = {
       true, //服务器压缩
     port:
       1988
+  },
+  watchOptions: {
+    poll: 3000, //watch 监测修改的时间
+    aggregeateTimeout: 500, //500ms内重复ctrl+s不会重复打包
+    ignored: /node_modules/, //忽略文件夹
   }
 }

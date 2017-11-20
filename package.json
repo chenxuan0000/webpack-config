@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server --open",
-    "dev": "set type=dev&webpack",
+    "dev": "set type=dev&webpack --watch",
     "build": "set type=build&webpack"
   },
   "author": "",
