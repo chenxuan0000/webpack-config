@@ -6,6 +6,7 @@ const uglify = require('uglifyjs-webpack-plugin');//压缩插件
 const htmlPlugin = require('html-webpack-plugin'); //html插件
 const extractTextPlugin = require('extract-text-webpack-plugin'); //css打包分离插件
 const entry = require('./webpack_config/entry.js'); //入口配置文件
+const copyWebpackPlugin= require("copy-webpack-plugin");
 
 if (process.env.type === 'build') {
   var webSite = {
@@ -106,7 +107,11 @@ module.exports = {
       // Give paths to parse for rules. These should be absolute!
       paths: glob.sync(path.join(__dirname, 'src/*.html')),
     }),
-    new webpack.BannerPlugin("常清文群翁无群二群翁！！！！") //公共注释插件
+    new webpack.BannerPlugin("常清文群翁无群二群翁！！！！"), //公共注释插件
+    new copyWebpackPlugin([{
+      from:__dirname+'/src/public',
+      to:'./public'
+    }])
   ],//插件
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),

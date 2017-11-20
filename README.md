@@ -147,3 +147,14 @@ cnpm i -D babel-preset-env
   "presets": ["env"]
 }
 ```
+
+#### 10.copy-webpack-plugin
+> 工作中会有一些已经存在但在项目中没有引用的图片资源或者其他静态资源（比如设计图、开发文档），这些静态资源有可能是文档，也有可能是一些额外的图片。项目组长会要求你打包时保留这些静态资源，直接打包到制定文件夹。其实打包这些资源只需要用到copy-webpack-plugin。使用copy-webpack-plugin
+```javascript
+cnpm install --save-dev copy-webpack-plugin
+const copyWebpackPlugin= require("copy-webpack-plugin");
+new copyWebpackPlugin([{
+              from:__dirname+'/src/public',
+              to:'./public'
+            }])
+```
