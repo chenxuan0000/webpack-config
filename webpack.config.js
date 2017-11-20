@@ -4,15 +4,21 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 const uglify = require('uglifyjs-webpack-plugin');//压缩插件
 const htmlPlugin = require('html-webpack-plugin'); //html插件
 const extractTextPlugin = require('extract-text-webpack-plugin'); //css打包分离插件
-var webSite = {
-  publicPath: 'http://127.0.0.1:1988/'
-}
+const entry = require('./webpack_config/entry.js'); //入口配置文件
 
+if(process.env.type === "build") {
+  var webSite = {
+    publicPath: 'http://www.chenxuan.com:8888/'
+  }
+}else {
+  var webSite = {
+    publicPath: 'http://127.0.0.1:1988/'
+  }
+}
+// console.log(encodeURIComponent(process.env.type))
 module.exports = {
   // devtool: 'source-map',
-  entry: { //入口
-    entry: './src/entry.js'
-  },
+  entry: entry.path,
   output: { //出口
     path: path.resolve(__dirname, 'dist'), //获取绝对路径
     filename: '[name].js', //[name]对应entry的文件名
